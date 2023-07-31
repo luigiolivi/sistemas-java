@@ -13,6 +13,7 @@ com X o quarto ocupado.
 
 package pkg5;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -30,7 +31,7 @@ public class Main {
         
         while (continuar == 'S' || continuar == 's') {
             Scanner entrada = new Scanner(System.in);
-                System.out.println("Digite o andar: ");
+                System.out.println("\nDigite o andar: ");
                 andar = entrada.nextInt();
                 
                 while (andar < 1 || andar > 3) {
@@ -45,17 +46,15 @@ public class Main {
                     quarto = entrada.nextInt();
                 }
                 
-                hotel[andar - 1][quarto - 1] = "ocupado";
+                hotel[andar - 1][quarto - 1] = "X";
                 
                 System.out.println("\nDeseja informar outra ocupação? (S/N): ");
                 continuar = entrada.next().charAt(0);
         }
         
-        for (int i = 0; i < hotel.length; i++) {
-            System.out.println("\n" + (i + 1) + "º andar: ");
-            for (int j = 0; j < hotel[i].length; j++) {
-                System.out.println("quarto " + (j + 1) + ": " + hotel[i][j]);
-            }
+        for (int i = (hotel.length -1); i >= 0; i--) {
+            System.out.println(Arrays.toString(hotel[i]));
         }
     }
 }
+
